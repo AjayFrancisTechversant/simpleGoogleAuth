@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "119563383988",
+    "project_id": "socialauth-8f50e",
+    "storage_bucket": "socialauth-8f50e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119563383988:android:b1c50e706c091f7d5913e1",
+        "android_client_info": {
+          "package_name": "com.simplegoogleauth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdQ8ZcO-jAQczFKjjy_l7zs7nLB2qtl0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
