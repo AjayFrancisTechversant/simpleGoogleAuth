@@ -2135,6 +2135,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@notifee/react-native@npm:^7.8.2":
+  version: 7.8.2
+  resolution: "@notifee/react-native@npm:7.8.2"
+  peerDependencies:
+    react-native: "*"
+  checksum: f3b3ea116653d4dc7b50f8124898f9e22567ae30306225841d2057bc9ce40d451b15436dff3e60e0e042ffd7f34338054b202cd2dc61c5dc5eab7676b625b9f9
+  languageName: node
+  linkType: hard
+
 "@npmcli/agent@npm:^2.0.0":
   version: 2.2.2
   resolution: "@npmcli/agent@npm:2.2.2"
@@ -2374,6 +2383,19 @@ __metadata:
     expo:
       optional: true
   checksum: 44d5897c938a24dd67a57b95759e03679ebc11ffe6d907ac110974d8ebf719c68bcdf42fb9c2759ffa34c74bcb032de35df98a4dd0a3a824f223b4f535f93abe
+  languageName: node
+  linkType: hard
+
+"@react-native-firebase/messaging@npm:^20.1.0":
+  version: 20.1.0
+  resolution: "@react-native-firebase/messaging@npm:20.1.0"
+  peerDependencies:
+    "@react-native-firebase/app": 20.1.0
+    expo: ">=47.0.0"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: 69b114453f093142c39461d05f2637d9dd31e28854f511689192a3a6e069c8aa3739f3eb550ab7600e4d277956fc01361621bde931bd83b7fa86141d20bcb823
   languageName: node
   linkType: hard
 
@@ -8941,8 +8963,10 @@ __metadata:
     "@babel/core": ^7.20.0
     "@babel/preset-env": ^7.20.0
     "@babel/runtime": ^7.20.0
+    "@notifee/react-native": ^7.8.2
     "@react-native-firebase/app": ^20.1.0
     "@react-native-firebase/auth": ^20.1.0
+    "@react-native-firebase/messaging": ^20.1.0
     "@react-native-google-signin/google-signin": ^12.1.1
     "@react-native/babel-preset": 0.74.83
     "@react-native/eslint-config": 0.74.83
