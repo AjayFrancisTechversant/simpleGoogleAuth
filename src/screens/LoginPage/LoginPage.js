@@ -3,15 +3,13 @@ import React, { useEffect } from 'react'
 import auth from '@react-native-firebase/auth';
 import { styles } from './Style';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import GithubAuthButton from '../../Components/GithubAuthButton/GithubAuthButton';
 
 const LoginPage = () => {
-
-    useEffect(()=>{
-        GoogleSignin.configure({
-            webClientId: '119563383988-079qasngsvf6rm3avcl5ceg0rerpb8a6.apps.googleusercontent.com',
-          });
-    },[])
-
+    GoogleSignin.configure({
+        webClientId: '119563383988-079qasngsvf6rm3avcl5ceg0rerpb8a6.apps.googleusercontent.com',
+      });
+  
     async function onGoogleButtonPress() {
       try {
           // Check if your device supports Google Play
@@ -55,13 +53,13 @@ const LoginPage = () => {
                     source={require('../../Assets/images/google-icon.png')}
                     />
                 </TouchableOpacity>
-                <Text style={{alignSelf:'center'}}>OR</Text>
                 <TouchableOpacity style={{width:50,justifyContent:'center',alignItems:'center'}}>
                     <Image
                     style={styles.facebookLogo}
                     source={require('../../Assets/images/Facebook-Logo.png')}
                     />
                 </TouchableOpacity>
+                <GithubAuthButton/>
            </View>
 
         </View>
