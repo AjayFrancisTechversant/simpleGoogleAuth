@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import auth from '@react-native-firebase/auth';
 import { styles } from './Style';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
 import GithubAuthButton from '../../Components/GithubAuthButton/GithubAuthButton';
 
 const LoginPage = () => {
@@ -41,19 +42,47 @@ const LoginPage = () => {
                 console.error(error);
             });
     }
+
+    async function onFacebookButtonPress() {
+       try {
+         // Attempt login with permissions
+         const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+      
+         if (result.isCancelled) {
+           throw 'User cancelled the login process';
+         }
+       
+         // Once signed in, get the users AccessToken
+         const data = await AccessToken.getCurrentAccessToken();
+       
+         if (!data) {
+           throw 'Something went wrong obtaining access token';
+         }
+       
+         // Create a Firebase credential with the AccessToken
+         const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+       
+         // Sign-in the user with the credential
+         return auth().signInWithCredential(facebookCredential)
+       } catch (error) {
+        console.log(error);
+       }
+      }
     return (
         <View>
             <TouchableOpacity onPress={handleanonymous}>
                 <Text style={[styles.underline,{alignSelf:'center',marginVertical:30}]}>Guest</Text>
             </TouchableOpacity>
            <View style={{flexDirection:'row',gap:40,justifyContent:'center'}}>
-                <TouchableOpacity onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))} style={{width:50,justifyContent:'center',alignItems:'center'}}>
+                <TouchableOpacity onPress={() => onGoogleButtonPress()} style={{width:50,justifyContent:'center',alignItems:'center'}}>
                     <Image
                     style={styles.googleLogo}
                     source={require('../../Assets/images/google-icon.png')}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity style={{width:50,justifyContent:'center',alignItems:'center'}}>
+                <TouchableOpacity 
+                onPress={() => onFacebookButtonPress()}
+                style={{width:50,justifyContent:'center',alignItems:'center'}}>
                     <Image
                     style={styles.facebookLogo}
                     source={require('../../Assets/images/Facebook-Logo.png')}
