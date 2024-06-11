@@ -8,9 +8,7 @@ import {PermissionsAndroid} from 'react-native';
 
 const HomeScreen = ({navigation}) => {
 
-  useEffect(()=>{
-    PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
-  })
+ 
 
   const displayNotification = async () => {
 
@@ -24,6 +22,7 @@ const HomeScreen = ({navigation}) => {
     await notifee.displayNotification({
       title: 'Notification Title',
       body: 'Main body content of the notification',
+      data:{},
       android: {
         channelId,
         //   smallIcon: 'name-of-a-small-icon', // optional, defaults to 'ic_launcher'.

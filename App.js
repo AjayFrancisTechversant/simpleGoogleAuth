@@ -9,14 +9,15 @@ import messaging from '@react-native-firebase/messaging';
 import Screen1 from './src/screens/Screen1/Screen1'
 import Screen2 from './src/screens/Screen2/Screen2'
 
-PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 const Stack = createNativeStackNavigator()
 
 const App = () => {
   useEffect(()=>{
-    // getFCM()
-  },[])
+    PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+  })
+
+ 
 
   const linking = {
     prefixes: ['myapp://', 'https://myapp.com'],
@@ -35,17 +36,6 @@ const App = () => {
     },
   };
   
-
-  // const getFCM=async()=>{
-  //   try {
-  //     const fcmToken=await messaging().getToken()
-  //     console.log(fcmToken);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
