@@ -9,7 +9,7 @@ import messaging from '@react-native-firebase/messaging';
 import Screen1 from './src/screens/Screen1/Screen1'
 import Screen2 from './src/screens/Screen2/Screen2'
 
-// PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
 
 const Stack = createNativeStackNavigator()
 

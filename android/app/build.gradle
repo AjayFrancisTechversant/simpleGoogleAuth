@@ -83,6 +83,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [appAuthRedirectScheme: 'com.redirectScheme.comm',
+        appAuthRedirectScheme: 'myapp'
+        ]
     }
     signingConfigs {
         debug {
@@ -111,6 +114,7 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation project(':react-native-fbsdk-next')
     implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+   
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
